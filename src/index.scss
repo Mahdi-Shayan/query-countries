@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "light";
+  src: url("./assets/font/NotoSansJP-Light.ttf");
+}
+@font-face {
+  font-family: "semi";
+  src: url("./assets/font//NotoSansJP-SemiBold.ttf");
+}
+@font-face {
+  font-family: "regular";
+  src: url("./assets/font//NotoSansJP-Regular.ttf");
+}
+body,
+#root,
+.app,
+main {
+  height: 100%;
+  width: 100%;
+  font-family: 'semi';
+}
