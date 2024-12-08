@@ -1,0 +1,9 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  .theme-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+}

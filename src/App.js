@@ -11,6 +11,7 @@ import { ColorModeContext } from "./contexts/ColorModeContext";
 
 // Pages
 import Home from "./pages/home/Home";
+
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 
