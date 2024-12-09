@@ -1,0 +1,33 @@
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 55px;
+  .country {
+    height: 280px;
+    border-radius: 5px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform .4s, box-shadow .4s;
+    &:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.542) !important;
+    }
+    .img {
+      height: 45%;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .about {
+      padding: 20px 25px 0 25px;
+      .name {
+        margin-bottom: 12px;
+      }
+      .des p{
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

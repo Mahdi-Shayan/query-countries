@@ -52,8 +52,8 @@ export const themeSettings = (mode) => {
       },
     },
     typography: {
-      fontFamily: ["regular", "sans-serif"].join(","),
-      fontSize: 12,
+      fontFamily: ["light", "sans-serif"].join(","),
+      fontSize: 11,
       h1: {
         fontFamily: ["semi", "sans-serif"].join(","),
         fontSize: 40,
