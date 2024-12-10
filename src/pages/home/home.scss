@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 55px;
   .country {
-    height: 280px;
+    height: 310px;
     border-radius: 5px;
     overflow: hidden;
     text-decoration: none;
@@ -23,7 +23,7 @@
     .about {
       padding: 20px 25px 0 25px;
       .name {
-        margin-bottom: 12px;
+        margin-bottom: 15px;
       }
       .des p{
         margin-bottom: 3px;
