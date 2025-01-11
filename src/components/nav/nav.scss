@@ -7,3 +7,9 @@ nav {
     gap: 3px;
   }
 }
+
+@media screen and (max-width: 645px) {
+  nav .title h4{
+    font-size: clamp(15px, 4vw, 20px);
+  }
+}

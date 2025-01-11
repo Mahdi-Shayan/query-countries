@@ -1,5 +1,5 @@
+import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 // Style
@@ -10,17 +10,21 @@ import { token } from "../../theme/theme";
 
 // MUI Materials
 import { useTheme } from "@emotion/react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 // Components
 import HomeSkeleton from "../../components/home_skeleton";
+import TopBar from "../../components/top-bar/TopBar";
+import ShowData from "../../components/showData";
 
 function Home() {
   const theme = useTheme();
   const colors = token(theme.palette.mode);
 
+  const [filter_res, setFilter_res] = useState() 
+
   const { data, isLoading } = useQuery({
-    queryKey: ["countries"],
+    queryKey: ["countries", 'all'],
     queryFn: async () => {
       try {
         const res = await axios.get("https://restcountries.com/v3.1/all");
@@ -42,50 +46,16 @@ function Home() {
                 : "rgb(110, 110, 110)",
           },
         }}
-        p="40px 70px"
+        p="40px 5%"
       >
+        <TopBar setFilter_res={setFilter_res}/>
         <div className="countries-grid">
           {isLoading ? (
             <HomeSkeleton bg={colors.primary[100]}/>
-          ) : (
-            data?.map((country, i) => {
-              return (
-                <Link
-                  to={`/${country.name.common.toLowerCase()}`}
-                  key={i}
-                  className="country"
-                  style={{
-                    backgroundColor: colors.primary[100],
-                    boxShadow: "0 0 7px rgba(0, 0, 0, 0.15)",
-                    color: colors.txt[100],
-                  }}
-                >
-                  <div className="img">
-                    <img src={country.flags.svg} alt="flag" />
-                  </div>
-                  <div className="about">
-                    <div className="name">
-                      <Typography variant="h5">
-                        {country.name.common}
-                      </Typography>
-                    </div>
-                    <div className="des">
-                      <Typography>
-                        Population:{" "}
-                        <span>{country.population.toLocaleString()}</span>
-                      </Typography>
-                      <Typography>
-                        Region: <span>{country.name.common}</span>
-                      </Typography>
-                      <Typography>
-                        Capital: <span>{country.capital}</span>
-                      </Typography>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })
-          )}
+          ) : filter_res 
+            ? <ShowData colors={colors} data={filter_res}/>
+            : <ShowData colors={colors} data={data}/>
+          }
         </div>
       </Box>
     </>

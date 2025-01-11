@@ -24,7 +24,14 @@ function Nav() {
 
   return (
     <>
-      <Box p="20px 70px" bgcolor={colors.primary[100]} boxShadow='0 0 7px rgba(0, 0, 0, 0.15)'>
+      <Box
+        p="20px 5%"
+        bgcolor={colors.primary[100]}
+        boxShadow="0 0 7px rgba(0, 0, 0, 0.15)"
+        position='sticky'
+        top='0'
+        zIndex={1}
+      >
         <nav>
           <div className="title">
             <Typography variant="h4">Where in the world?</Typography>

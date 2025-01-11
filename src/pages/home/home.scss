@@ -1,6 +1,6 @@
 .countries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 55px;
   .country {
     height: 310px;
@@ -29,5 +29,11 @@
         margin-bottom: 3px;
       }
     }
+  }
+}
+@media screen and (max-width: 645px) {
+  .countries-grid {
+    justify-content: center;
+    grid-template-columns: clamp(300px, 20vw, 320px);
   }
 }
