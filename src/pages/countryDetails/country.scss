@@ -31,7 +31,7 @@
     'des-1 des-2'
     'borders borders'
   ;
-  grid-template-columns: 250px 175px;
+  grid-template-columns: 250px 200px;
   grid-template-rows: auto;
   row-gap: 30px;
   padding-top: 50px;
@@ -44,11 +44,9 @@
   }
   .des-1 {
     grid-area: des-1;
-    width: max-content;
   }
   .des-2 {
     grid-area: des-2;
-    width: max-content;
   }
   .border-countries {
     grid-area: borders;
@@ -63,6 +61,31 @@
         padding: 2px 25px;
         border-radius: 2px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 985px) {
+  p {
+    font-size: clamp(11px, 2vw, 13px) !important;
+  }
+  h2 {
+    font-size: clamp(28px, 2vw, 32vw) !important;
+  }
+  .details-grid {
+    flex-direction: column;
+    padding-right: 0 !important;
+    .flag {
+      width: 90%;
+      gap: 50px;
+      img {
+        width: 60%;
+        min-width: 320px;
+        max-height: 300px;
+      }
+    }
+    .details {
+      grid-template-columns: clamp(170px, 30vw, 200px) 175px;
     }
   }
 }

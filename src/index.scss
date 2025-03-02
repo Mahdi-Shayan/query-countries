@@ -20,7 +20,8 @@ body,
 #root,
 .app,
 main {
+  position: relative;
   height: 100%;
-  width: 100%;
+  min-height: calc(100vh - 80px);
   font-family: 'light';
 }

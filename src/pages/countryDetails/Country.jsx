@@ -56,11 +56,12 @@ function Country() {
   return (
     <>
       <Box
+        className="details-grid"
         display="flex"
-        gap="100px"
-        p="70px"
-        height="650px"
-        maxWidth="max-content"
+        gap="10%"
+        p="5%"
+        height="100%"
+        maxWidth="100%"
         width="100%"
         sx={{
           ["& span"]: {
@@ -84,79 +85,84 @@ function Country() {
             Back
           </button>
           {isLoading ? (
-            <Skeleton height="80%" width="100%" />
+            <Skeleton height="100%" width="100%" />
           ) : (
             <img src={data?.flags.svg} alt="flag" />
           )}
         </div>
-        {isLoading ? (
-          <DetailsSkeleton />
-        ) : (
-          <div className="details">
-            <div className="name">
-              <Typography variant="h2">{data?.name.common}</Typography>
-            </div>
-            <div className="des-1">
-              <Typography>
-                Native Name:{" "}
-                <span>{data?.name?.nativeName[lan]?.common}</span>
-              </Typography>
-
-              <Typography>
-                Population:{" "}
-                <span>{data?.population?.toLocaleString()}</span>
-              </Typography>
-
-              <Typography>
-                Region: <span>{data?.region}</span>
-              </Typography>
-
-              {data?.subregion && (
-                <Typography>
-                  Sub Region: <span>{data?.subregion}</span>
-                </Typography>
-              )}
-
-              <Typography>
-                Capital: <span>{data?.capital}</span>
-              </Typography>
-            </div>
-            <div className="des-2">
-              <Typography>
-                Top Level Domain: <span>{data?.tld}</span>
-              </Typography>
-
-              <Typography>
-                Currencies: <span>{data?.currencies[currency]?.name}</span>
-              </Typography>
-              <Typography>
-                Languages: <span>{lan.join(", ")}</span>
-              </Typography>
-            </div>
-            <div className="border-countries">
-              <Typography>Border Countries:</Typography>
-              <div className="countries">
-                {data?.borders ? (
-                  data?.borders?.map((d, ind) => {
-                    return (
-                      <span
-                        key={ind}
-                        className="btn"
-                        style={{
-                          backgroundColor: colors.primary[100],
-                        }}
-                      >
-                        {d}
-                      </span>
-                    );
-                  })
-                ) : (
-                  <span style={{ width: 'max-content'}}>There is No any border Country</span>
-                )}
+        <div className="details">
+          {isLoading ? (
+            <DetailsSkeleton />
+          ) : (
+            <>
+              <div className="name">
+                <Typography variant="h2">{data?.name.common}</Typography>
               </div>
-            </div>
-          </div>
-        )}
+              <div className="des-1">
+                <Typography>
+                  Native Name:{" "}
+                  <span>{data?.name?.nativeName[lan]?.common}</span>
+                </Typography>
+
+                <Typography>
+                  Population:{" "}
+                  <span>{data?.population?.toLocaleString()}</span>
+                </Typography>
+
+                <Typography>
+                  Region: <span>{data?.region}</span>
+                </Typography>
+
+                {data?.subregion && (
+                  <Typography>
+                    Sub Region: <span>{data?.subregion}</span>
+                  </Typography>
+                )}
+
+                <Typography>
+                  Capital: <span>{data?.capital}</span>
+                </Typography>
+              </div>
+              <div className="des-2">
+                <Typography>
+                  Top Level Domain: <span>{data?.tld}</span>
+                </Typography>
+
+                <Typography>
+                  Currencies:{" "}
+                  <span>{data?.currencies[currency]?.name}</span>
+                </Typography>
+                <Typography>
+                  Languages: <span>{lan.join(", ")}</span>
+                </Typography>
+              </div>
+              <div className="border-countries">
+                <Typography>Border Countries:</Typography>
+                <div className="countries">
+                  {data?.borders ? (
+                    data?.borders?.map((d, ind) => {
+                      return (
+                        <span
+                          key={ind}
+                          className="btn"
+                          style={{
+                            backgroundColor: colors.primary[100],
+                          }}
+                        >
+                          {d}
+                        </span>
+                      );
+                    })
+                  ) : (
+                    <span style={{ width: "max-content" }}>
+                      There is No any border Country
+                    </span>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </Box>
     </>
   );
