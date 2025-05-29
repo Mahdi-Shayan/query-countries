@@ -4,7 +4,7 @@ function DetailsSkeleton() {
   return (
     <>
       <div className="name">
-        <Skeleton variant="text" height="40px" width="170px" />
+        <Skeleton variant="text" height="400px" width="170px" />
       </div>
       <div className="des-1">
         <Skeleton variant="text" width="150px" />
