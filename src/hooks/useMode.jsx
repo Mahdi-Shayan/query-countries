@@ -13,6 +13,6 @@ export const useMode = () => {
     setMode((pre) => (pre === "dark" ? "light" : "dark"));
   }, []);
 
-  const theme = useMemo(() => createTheme(themeSettings(mode), [mode]));
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return [theme, colorMode];
 };

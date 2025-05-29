@@ -39,7 +39,7 @@ function Home() {
     <>
       <Box
         sx={{
-          ["& span"]: {
+          "& span": {
             color:
               theme.palette.mode === "dark"
                 ? "rgb(191, 191, 191)"

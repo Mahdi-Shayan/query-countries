@@ -67,7 +67,7 @@ function TopBar({ setFilter_res }) {
       controller.abort();
       isMount = false;
     };
-  }, [filter]);
+  }, [filter, setFilter_res]);
 
   // Search countries by name
   useEffect(() => {
@@ -76,7 +76,7 @@ function TopBar({ setFilter_res }) {
     const signal = controller.signal;
 
     const searchCountries = async () => {
-      if (search != "" && search.length > 1) {
+      if (search !== "" && search.length > 1) {
         try {
           const res = await axios.get(
             `https://restcountries.com/v3.1/translation/${search}`,

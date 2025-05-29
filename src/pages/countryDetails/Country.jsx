@@ -64,7 +64,7 @@ function Country() {
         maxWidth="100%"
         width="100%"
         sx={{
-          ["& span"]: {
+          "& span": {
             color:
               theme.palette.mode === "dark"
                 ? "rgb(191, 191, 191)"
